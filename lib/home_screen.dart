@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,66 +7,64 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "متجر المفتاح",
-          style: GoogleFonts.mada(),
-        ),
-        backgroundColor: const Color.fromARGB(255, 1, 103, 4),
-        centerTitle: false,
-        elevation: 0,
-        actions: const [
-          Icon(
-            Icons.search,
-            size: 24,
-            color: Colors.black,
+        title: const Text("متجر المفتاح"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              print("Search");
+            },
+            icon: const Icon(Icons.search),
           ),
-          Icon(Icons.notifications),
-          Icon(Icons.ac_unit),
+          IconButton(
+            onPressed: () {
+              print("Notifications");
+            },
+            icon: const Icon(Icons.notifications_outlined),
+          ),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
-          Row(
-            children: [
-              Text(
-                "1",
-                style: GoogleFonts.mada(fontSize: 24),
+          ListTile(
+            title: const Text("قاط رجالي رسمي"),
+            subtitle: const Text("75,000 د.ع"),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                "https://thekeysoftware.com/courses/flutter1/clothes/man-1.png",
+                fit: BoxFit.cover,
+                width: 50,
+                height: 50,
               ),
-              Column(
-                children: [
-                  Text(
-                    "قاط رجالي رسمي",
-                    style: GoogleFonts.mada(fontSize: 24),
-                  ),
-                  Text(
-                    "100,000 د.ع",
-                    style: GoogleFonts.mada(fontSize: 18),
-                  ),
-                ],
-              )
-            ],
+            ),
+          ),
+          ListTile(
+            title: const Text("سترة رجالي رسمية"),
+            subtitle: const Text("55,000 د.ع"),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                "https://thekeysoftware.com/courses/flutter1/clothes/man-2.png",
+                fit: BoxFit.cover,
+                width: 50,
+                height: 50,
+              ),
+            ),
+          ),
+          ListTile(
+            title: const Text("قاط اسود"),
+            subtitle: const Text("100,000 د.ع"),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                "https://thekeysoftware.com/courses/flutter1/clothes/man-3.png",
+                fit: BoxFit.cover,
+                width: 50,
+                height: 50,
+              ),
+            ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class PriceWidget extends StatelessWidget {
-  const PriceWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "\$1,200",
-      style: GoogleFonts.mada(
-        fontSize: 40,
-        color: const Color(0xFF474747),
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.normal,
-        backgroundColor: Colors.transparent,
       ),
     );
   }
