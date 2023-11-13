@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.cairoTextTheme(),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red,
+          seedColor: Colors.blue,
         ),
       ),
       home: const Directionality(
