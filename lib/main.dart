@@ -14,8 +14,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: false,
-        textTheme: GoogleFonts.ibmPlexSansArabicTextTheme(),
+        useMaterial3: true,
+        textTheme: GoogleFonts.cairoTextTheme(),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.red,
         ),
