@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:thekey_course3/cart_screen.dart';
 import 'package:thekey_course3/product_screen.dart';
 
+import 'notifications_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -19,7 +21,13 @@ class HomeScreen extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              print("Notifications");
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const NotificationsScreen();
+                  },
+                ),
+              );
             },
             icon: const Icon(Icons.notifications_outlined),
           ),

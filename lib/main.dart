@@ -15,9 +15,20 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
+        brightness: Brightness.light,
         textTheme: GoogleFonts.cairoTextTheme(),
         colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.indigo,
+          brightness: Brightness.light,
+        ),
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        textTheme: GoogleFonts.madaTextTheme(),
+        colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
+          brightness: Brightness.dark,
         ),
       ),
       home: const Directionality(
