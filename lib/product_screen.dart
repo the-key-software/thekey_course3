@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thekey_course3/home_screen.dart';
 
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends StatefulWidget {
   final Product product;
   final int index;
 
@@ -12,12 +12,19 @@ class ProductScreen extends StatelessWidget {
   });
 
   @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
+  bool like = false;
+
+  @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("معلومات المنتج ${index + 1}"),
+          title: Text("معلومات المنتج ${widget.index + 1}"),
           // centerTitle: true,
           actions: [
             IconButton(
@@ -25,8 +32,14 @@ class ProductScreen extends StatelessWidget {
               icon: const Icon(Icons.share),
             ),
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite),
+              onPressed: () {
+                setState(() {
+                  like = !like;
+                });
+              },
+              icon: Icon(
+                like ? Icons.favorite : Icons.favorite_outline,
+              ),
             ),
           ],
         ),
@@ -38,30 +51,30 @@ class ProductScreen extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 4 / 5,
                 child: Image.network(
-                  product.image,
+                  widget.product.image,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Text(
-              product.name,
+              widget.product.name,
               style: const TextStyle(fontSize: 24),
             ),
             Text(
-              "${product.price} د.ع",
+              "${widget.product.price} د.ع",
               style: const TextStyle(fontSize: 24),
             ),
-            Text(product.description),
+            Text(widget.product.description),
             const Text(
               "القياسات",
               style: TextStyle(fontSize: 24),
             ),
-            SizesListWidget(sizes: product.sizes),
+            SizesListWidget(sizes: widget.product.sizes),
             const Text(
               "الالوان",
               style: TextStyle(fontSize: 24),
             ),
-            ColorsListWidget(colors: product.colors),
+            ColorsListWidget(colors: widget.product.colors),
             FilledButton(
               onPressed: () {},
               child: const Text("اضف الى السلة"),
