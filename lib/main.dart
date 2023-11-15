@@ -16,18 +16,22 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
-        textTheme: GoogleFonts.cairoTextTheme(),
+        textTheme: GoogleFonts.cairoTextTheme(
+          ThemeData.light().textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
+          seedColor: Colors.pink,
           brightness: Brightness.light,
         ),
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        textTheme: GoogleFonts.madaTextTheme(),
+        textTheme: GoogleFonts.madaTextTheme(
+          ThemeData.dark().textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
+          seedColor: Colors.red,
           brightness: Brightness.dark,
         ),
       ),
